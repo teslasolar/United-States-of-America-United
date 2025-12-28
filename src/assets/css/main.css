@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animated background gradients */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(191, 10, 48, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(191, 10, 48, 0.6), 0 0 60px rgba(191, 10, 48, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
 /* Custom component classes */
 @layer components {
   /* Story container */
@@ -9,24 +49,48 @@
     @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
   }
 
-  /* Choice buttons */
+  /* Choice buttons - Enhanced */
   .choice-btn {
-    @apply block w-full text-left p-6 mb-4 rounded-lg border-2 border-americana-steel
-           bg-americana-surface hover:bg-americana-navy/30 hover:border-americana-crimson
-           transition-all duration-300 cursor-pointer;
+    @apply block w-full text-left p-8 mb-6 rounded-xl border-2 border-americana-steel/50
+           bg-gradient-to-br from-americana-surface to-americana-navy/20
+           hover:from-americana-navy/40 hover:to-americana-crimson/20
+           hover:border-americana-crimson hover:shadow-2xl hover:shadow-americana-crimson/20
+           transition-all duration-500 cursor-pointer relative overflow-hidden
+           transform hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  .choice-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(191, 10, 48, 0.1),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .choice-btn:hover::before {
+    left: 100%;
   }
 
   .choice-btn-title {
-    @apply text-xl font-bold text-americana-text
-           transition-colors duration-300 mb-2;
+    @apply text-2xl font-bold text-americana-text font-display
+           transition-all duration-300 mb-3 relative z-10;
   }
 
   .choice-btn:hover .choice-btn-title {
-    @apply text-americana-crimson;
+    @apply text-americana-gold;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
   }
 
   .choice-btn-desc {
-    @apply text-americana-textMuted
+    @apply text-americana-textMuted leading-relaxed relative z-10
            transition-colors duration-300;
   }
 
@@ -143,12 +207,63 @@
 /* Custom utilities */
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-americana-crimson via-americana-white to-americana-navy
-           bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #BF0A30 0%, #FFFFFF 50%, #002868 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .americana-glow {
     text-shadow: 0 0 20px rgba(191, 10, 48, 0.5);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg,
+      #0F1419 0%,
+      #002868 25%,
+      #BF0A30 50%,
+      #002868 75%,
+      #0F1419 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  .glass-effect {
+    background: rgba(26, 31, 46, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow-animation {
+    animation: pulse-glow 2s ease-in-out infinite;
   }
 
   .scrollbar-thin {

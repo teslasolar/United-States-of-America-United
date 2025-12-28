@@ -4,28 +4,63 @@ title: Home
 permalink: /
 ---
 
-<div class="max-w-5xl mx-auto">
+<!-- Animated background -->
+<div class="fixed inset-0 hero-gradient opacity-30 pointer-events-none -z-10"></div>
 
-  <!-- Hero Section -->
-  <header class="text-center py-12 mb-16">
-    <h1 class="text-5xl md:text-7xl font-display font-bold mb-4">
-      <span class="text-gradient">United States of America</span>
-      <span class="block text-americana-crimson mt-2">United</span>
-    </h1>
-    <p class="text-xl md:text-2xl text-americana-textMuted max-w-3xl mx-auto mb-8">
-      An Alternate History of American Isolationism and Innovation
-    </p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="/story/{{ storyGraph.startNode }}/" class="btn btn-primary text-lg">
-        Begin Your Journey
-      </a>
-      <button
-        @click="$store.story && $store.story.currentNode && (window.location.href = '/story/' + $store.story.currentNode + '/')"
-        x-show="$store.story && $store.story.currentNode && $store.story.visitedNodes.length > 1"
-        class="btn btn-outline text-lg"
-      >
-        Continue Story
-      </button>
+<div class="max-w-5xl mx-auto relative">
+
+  <!-- Hero Section - Enhanced -->
+  <header class="text-center py-16 md:py-24 mb-16 relative">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-americana-crimson/10 rounded-full blur-3xl float-animation"></div>
+      <div class="absolute top-20 right-10 w-40 h-40 bg-americana-navy/10 rounded-full blur-3xl float-animation" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-10 left-1/3 w-36 h-36 bg-americana-gold/10 rounded-full blur-3xl float-animation" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10">
+      <div class="mb-6">
+        <div class="inline-block px-4 py-2 rounded-full glass-effect border border-americana-crimson/30 mb-4">
+          <span class="text-americana-gold font-mono text-sm">1945 → Alternate Timeline</span>
+        </div>
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight">
+        <span class="text-gradient block">United States</span>
+        <span class="text-gradient block">of America</span>
+        <span class="block text-gradient-gold mt-4 pulse-glow-animation">United</span>
+      </h1>
+
+      <p class="text-xl md:text-3xl text-americana-text max-w-3xl mx-auto mb-4 font-light">
+        An Alternate History of
+      </p>
+      <p class="text-2xl md:text-4xl font-display font-bold text-americana-crimson mb-10">
+        American Isolationism & Innovation
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="/story/{{ storyGraph.startNode }}/"
+           class="btn btn-primary text-lg px-10 py-4 pulse-glow-animation transform hover:scale-110 transition-transform duration-300">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+            Begin Your Journey
+          </span>
+        </a>
+        <button
+          @click="$store.story && $store.story.currentNode && (window.location.href = '/story/' + $store.story.currentNode + '/')"
+          x-show="$store.story && $store.story.currentNode && $store.story.visitedNodes.length > 1"
+          class="btn btn-outline text-lg px-10 py-4 glass-effect transform hover:scale-105 transition-transform duration-300"
+        >
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Continue Story
+          </span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -73,57 +108,69 @@ permalink: /
 
   <!-- The Paths -->
   <section class="mb-12">
-    <h2 class="text-3xl font-display font-bold text-americana-text mb-8 text-center">
-      The Diverging Paths
+    <h2 class="text-4xl md:text-5xl font-display font-bold text-center mb-4">
+      <span class="text-gradient">The Diverging Paths</span>
     </h2>
+    <p class="text-center text-americana-textMuted mb-12 max-w-2xl mx-auto">
+      Three visions for America's future. Each choice leads to a different world.
+    </p>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-8">
 
       <!-- Path 1: Isolation -->
-      <div class="card hover:border-americana-crimson transition-all duration-300">
-        <div class="text-4xl mb-4">🏛️</div>
-        <h3 class="text-xl font-display font-bold text-americana-text mb-3">
-          Fortress America
-        </h3>
-        <p class="text-americana-textMuted mb-4">
-          Total isolation. All troops home. No foreign bases. Every dollar redirected to American innovation and infrastructure. Merit-only immigration.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="badge badge-era">Isolationism</span>
-          <span class="badge badge-year">Tech Focus</span>
-          <span class="badge badge-decision">Self-Reliance</span>
+      <div class="card hover:border-americana-crimson hover:shadow-2xl hover:shadow-americana-crimson/20 transition-all duration-500 relative overflow-hidden transform hover:scale-105 group">
+        <div class="absolute inset-0 bg-gradient-to-br from-americana-crimson/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">🏛️</div>
+          <h3 class="text-2xl font-display font-bold text-americana-text mb-4 group-hover:text-americana-crimson transition-colors">
+            Fortress America
+          </h3>
+          <p class="text-americana-textMuted mb-6 leading-relaxed">
+            Total isolation. All troops home. No foreign bases. Every dollar redirected to American innovation and infrastructure. Merit-only immigration.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-era transform group-hover:scale-110 transition-transform">Isolationism</span>
+            <span class="badge badge-year transform group-hover:scale-110 transition-transform">Tech Focus</span>
+            <span class="badge badge-decision transform group-hover:scale-110 transition-transform">Self-Reliance</span>
+          </div>
         </div>
       </div>
 
       <!-- Path 2: Innovation -->
-      <div class="card hover:border-americana-gold transition-all duration-300">
-        <div class="text-4xl mb-4">🚀</div>
-        <h3 class="text-xl font-display font-bold text-americana-text mb-3">
-          Silicon Dawn
-        </h3>
-        <p class="text-americana-textMuted mb-4">
-          Selective engagement through trade only. No military commitments. Maximum R&D investment. Import genius, export technology.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="badge badge-era">Innovation</span>
-          <span class="badge badge-year">Commerce</span>
-          <span class="badge badge-decision">Excellence</span>
+      <div class="card hover:border-americana-gold hover:shadow-2xl hover:shadow-americana-gold/20 transition-all duration-500 relative overflow-hidden transform hover:scale-105 group">
+        <div class="absolute inset-0 bg-gradient-to-br from-americana-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">🚀</div>
+          <h3 class="text-2xl font-display font-bold text-americana-text mb-4 group-hover:text-americana-gold transition-colors">
+            Silicon Dawn
+          </h3>
+          <p class="text-americana-textMuted mb-6 leading-relaxed">
+            Selective engagement through trade only. No military commitments. Maximum R&D investment. Import genius, export technology.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-era transform group-hover:scale-110 transition-transform">Innovation</span>
+            <span class="badge badge-year transform group-hover:scale-110 transition-transform">Commerce</span>
+            <span class="badge badge-decision transform group-hover:scale-110 transition-transform">Excellence</span>
+          </div>
         </div>
       </div>
 
       <!-- Path 3: Unity -->
-      <div class="card hover:border-americana-navy transition-all duration-300">
-        <div class="text-4xl mb-4">🇺🇸</div>
-        <h3 class="text-xl font-display font-bold text-americana-text mb-3">
-          American Unity
-        </h3>
-        <p class="text-americana-textMuted mb-4">
-          Rebuild America from within. Heal divisions. Modern infrastructure. Universal prosperity. Minimal foreign involvement. Shared national purpose.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="badge badge-era">Domestic</span>
-          <span class="badge badge-year">Unity</span>
-          <span class="badge badge-decision">Infrastructure</span>
+      <div class="card hover:border-americana-navy hover:shadow-2xl hover:shadow-americana-navy/20 transition-all duration-500 relative overflow-hidden transform hover:scale-105 group">
+        <div class="absolute inset-0 bg-gradient-to-br from-americana-navy/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">🇺🇸</div>
+          <h3 class="text-2xl font-display font-bold text-americana-text mb-4 group-hover:text-americana-navy transition-colors">
+            American Unity
+          </h3>
+          <p class="text-americana-textMuted mb-6 leading-relaxed">
+            Rebuild America from within. Heal divisions. Modern infrastructure. Universal prosperity. Minimal foreign involvement. Shared national purpose.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-era transform group-hover:scale-110 transition-transform">Domestic</span>
+            <span class="badge badge-year transform group-hover:scale-110 transition-transform">Unity</span>
+            <span class="badge badge-decision transform group-hover:scale-110 transition-transform">Infrastructure</span>
+          </div>
         </div>
       </div>
 
