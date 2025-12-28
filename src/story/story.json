@@ -79,7 +79,8 @@
       "era": "isolation",
       "year": "1950-1970",
       "type": "story",
-      "nextNode": "path-isolation/202-space-age",
+      "nextNode": "endings/splendid-isolation",
+      "prevNode": "path-isolation/200-fortress-america",
       "tags": ["technology", "innovation", "renaissance"]
     },
     "path-isolation/202-space-age": {
@@ -111,12 +112,13 @@
     },
     "path-innovation/302-mars-colony": {
       "id": "path-innovation/302-mars-colony",
-      "title": "Mars Colony Alpha",
+      "title": "The Red Frontier",
       "era": "innovation",
-      "year": "1980-2000",
-      "type": "story",
-      "nextNode": "endings/techno-utopia",
-      "tags": ["mars", "colony", "space", "achievement"]
+      "year": "1970-1990",
+      "type": "ending",
+      "endingType": "triumph",
+      "prevNode": "path-innovation/301-fusion-breakthrough",
+      "tags": ["mars", "colony", "space", "ending", "triumph"]
     },
     "path-unity/400-rebuilding": {
       "id": "path-unity/400-rebuilding",
@@ -133,17 +135,19 @@
       "era": "unity",
       "year": "1960-1980",
       "type": "story",
-      "nextNode": "path-unity/402-new-frontier",
+      "nextNode": "path-unity/402-quiet-greatness",
+      "prevNode": "path-unity/400-rebuilding",
       "tags": ["infrastructure", "progress", "development"]
     },
-    "path-unity/402-new-frontier": {
-      "id": "path-unity/402-new-frontier",
-      "title": "The New American Frontier",
+    "path-unity/402-quiet-greatness": {
+      "id": "path-unity/402-quiet-greatness",
+      "title": "Quiet Greatness",
       "era": "unity",
       "year": "1980-2000",
-      "type": "story",
-      "nextNode": "endings/quiet-greatness",
-      "tags": ["frontier", "achievement", "prosperity"]
+      "type": "ending",
+      "endingType": "good",
+      "prevNode": "path-unity/401-infrastructure",
+      "tags": ["ending", "peace", "prosperity"]
     },
     "endings/techno-utopia": {
       "id": "endings/techno-utopia",
