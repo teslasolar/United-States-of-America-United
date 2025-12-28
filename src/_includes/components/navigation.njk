@@ -1,6 +1,6 @@
 <!-- Logo/Title -->
 <div class="mb-8">
-  <a href="/" class="block">
+  <a href="{{ '/' | url }}" class="block">
     <h1 class="text-2xl font-display font-bold text-americana-crimson mb-1">
       USAU
     </h1>
@@ -28,7 +28,7 @@
 
   <!-- Home -->
   <div>
-    <a href="/" class="nav-link {{ 'nav-link-active' if page.url == '/' }}">
+    <a href="{{ '/' | url }}" class="nav-link {{ 'nav-link-active' if page.url == '/' }}">
       <span class="font-sans">Home</span>
     </a>
   </div>
@@ -50,7 +50,7 @@
     </h3>
     <div class="space-y-1">
       {% for item in storyGraph.timeline | slice(0, 8) %}
-      <a href="/story/{{ item.id }}/"
+      <a href="{{ ('/story/' + item.id + '/') | url }}"
          class="nav-link text-sm"
          :class="$store.story && $store.story.hasVisited('{{ item.id }}') ? 'text-americana-text' : 'text-americana-textMuted/50'"
       >

@@ -4,6 +4,7 @@
  */
 
 const STORAGE_KEY = 'usau-story-state';
+const PATH_PREFIX = '/United-States-of-America-United';
 
 // Initialize Alpine.js store
 document.addEventListener('alpine:init', () => {
@@ -43,7 +44,7 @@ document.addEventListener('alpine:init', () => {
 
       // Update URL without reload
       if (history.pushState) {
-        const newUrl = `/story/${nodeId}/`;
+        const newUrl = `${PATH_PREFIX}/story/${nodeId}/`;
         history.pushState({nodeId}, '', newUrl);
       }
     },
@@ -64,7 +65,7 @@ document.addEventListener('alpine:init', () => {
 
       // Navigate to next node
       if (nextNodeId) {
-        window.location.href = `/story/${nextNodeId}/`;
+        window.location.href = `${PATH_PREFIX}/story/${nextNodeId}/`;
       }
     },
 
@@ -114,7 +115,7 @@ document.addEventListener('alpine:init', () => {
         this.consequences = [...bookmark.consequences];
         this.visitedNodes = [...bookmark.visitedNodes];
         this.saveState();
-        window.location.href = `/story/${bookmark.nodeId}/`;
+        window.location.href = `${PATH_PREFIX}/story/${bookmark.nodeId}/`;
       }
     },
 
@@ -176,7 +177,7 @@ document.addEventListener('alpine:init', () => {
         this.playTime = 0;
         // Don't clear bookmarks - keep them as save points
         this.saveState();
-        window.location.href = `/story/${startNode}/`;
+        window.location.href = `${PATH_PREFIX}/story/${startNode}/`;
       }
     },
 
@@ -198,7 +199,7 @@ document.addEventListener('alpine:init', () => {
 
         this.currentNode = previousNode;
         this.saveState();
-        window.location.href = `/story/${previousNode}/`;
+        window.location.href = `${PATH_PREFIX}/story/${previousNode}/`;
       }
     },
 

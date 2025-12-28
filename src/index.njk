@@ -39,7 +39,7 @@ permalink: /
       </p>
 
       <div class="flex flex-wrap justify-center gap-6">
-        <a href="/story/{{ storyGraph.startNode }}/"
+        <a href="{{ ('/story/' + storyGraph.startNode + '/') | url }}"
            class="btn btn-primary text-lg px-10 py-4 pulse-glow-animation transform hover:scale-110 transition-transform duration-300">
           <span class="flex items-center gap-3">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@ permalink: /
           </span>
         </a>
         <button
-          @click="$store.story && $store.story.currentNode && (window.location.href = '/story/' + $store.story.currentNode + '/')"
+          @click="$store.story && $store.story.currentNode && (window.location.href = '{{ '/story/' | url }}' + $store.story.currentNode + '/')"
           x-show="$store.story && $store.story.currentNode && $store.story.visitedNodes.length > 1"
           class="btn btn-outline text-lg px-10 py-4 glass-effect transform hover:scale-105 transition-transform duration-300"
         >
@@ -234,7 +234,7 @@ permalink: /
     <p class="text-americana-textMuted mb-8 max-w-2xl mx-auto">
       The year is 1945. The war is won. The future is unwritten. What path will you choose for America?
     </p>
-    <a href="/story/{{ storyGraph.startNode }}/" class="btn btn-primary text-lg">
+    <a href="{{ ('/story/' + storyGraph.startNode + '/') | url }}" class="btn btn-primary text-lg">
       Begin Your Journey →
     </a>
   </section>

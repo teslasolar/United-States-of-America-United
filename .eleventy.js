@@ -62,8 +62,8 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter('nodeUrl', function(nodeId) {
-    if (!nodeId) return '/';
-    return `/story/${nodeId}/`;
+    if (!nodeId) return '/United-States-of-America-United/';
+    return `/United-States-of-America-United/story/${nodeId}/`;
   });
 
   // Shortcodes
@@ -72,7 +72,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode('nodeLink', function(nodeId, text) {
-    return `<a href="/story/${nodeId}/" class="text-americana-crimson hover:text-americana-gold transition-colors">${text || nodeId}</a>`;
+    return `<a href="/United-States-of-America-United/story/${nodeId}/" class="text-americana-crimson hover:text-americana-gold transition-colors">${text || nodeId}</a>`;
   });
 
   // Paired shortcode for decision choices
@@ -96,6 +96,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
+    pathPrefix: '/United-States-of-America-United/',
     dir: {
       input: 'src',
       output: '_site',
