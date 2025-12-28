@@ -83,15 +83,6 @@
       "prevNode": "path-isolation/200-fortress-america",
       "tags": ["technology", "innovation", "renaissance"]
     },
-    "path-isolation/202-space-age": {
-      "id": "path-isolation/202-space-age",
-      "title": "The American Space Age",
-      "era": "isolation",
-      "year": "1970-1990",
-      "type": "story",
-      "nextNode": "endings/splendid-isolation",
-      "tags": ["space", "technology", "achievement"]
-    },
     "path-innovation/300-silicon-dawn": {
       "id": "path-innovation/300-silicon-dawn",
       "title": "Silicon Dawn",
