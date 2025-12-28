@@ -1,7 +1,7 @@
 {% if type == 'story' and nextNode %}
 <div class="mt-12 flex justify-between items-center">
   <a
-    href="/story/{{ nextNode }}/"
+    href="{{ ('/story/' + nextNode + '/') | url }}"
     class="btn btn-primary inline-flex items-center gap-2"
     @click="$store.story && $store.story.visitNode('{{ nextNode }}')"
   >
@@ -13,7 +13,7 @@
 
   {% if prevNode %}
   <a
-    href="/story/{{ prevNode }}/"
+    href="{{ ('/story/' + prevNode + '/') | url }}"
     class="text-americana-textMuted hover:text-americana-text transition-colors inline-flex items-center gap-2"
   >
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@
       You've completed one possible timeline. There are other paths to explore.
     </p>
     <div class="flex justify-center gap-4">
-      <a href="/" class="btn btn-primary">
+      <a href="{{ '/' | url }}" class="btn btn-primary">
         Return Home
       </a>
       <button
