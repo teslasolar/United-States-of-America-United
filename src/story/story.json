@@ -1,0 +1,196 @@
+{
+  "title": "United States of America United",
+  "subtitle": "An Alternate History of American Isolationism and Innovation",
+  "author": "United States of America United Project",
+  "version": "1.0.0",
+  "startNode": "prologue/001-opening",
+  "historicalDivergence": {
+    "year": 1945,
+    "event": "End of World War II",
+    "description": "Instead of pursuing the Marshall Plan and global military intervention, America chose isolationism and redirected resources to internal development and technological advancement."
+  },
+  "nodes": {
+    "prologue/001-opening": {
+      "id": "prologue/001-opening",
+      "title": "The Foundation: 1900-1945",
+      "era": "prologue",
+      "year": "1900-1945",
+      "type": "story",
+      "nextNode": "divergence/100-war-ends",
+      "tags": ["historical", "foundation", "prologue"]
+    },
+    "divergence/100-war-ends": {
+      "id": "divergence/100-war-ends",
+      "title": "Victory and Power",
+      "era": "divergence",
+      "year": "1945",
+      "type": "story",
+      "nextNode": "divergence/101-crossroads",
+      "tags": ["historical", "divergence", "wwii"]
+    },
+    "divergence/101-crossroads": {
+      "id": "divergence/101-crossroads",
+      "title": "The Crossroads",
+      "era": "divergence",
+      "year": "1945",
+      "type": "decision",
+      "description": "America stands at a crossroads. With unprecedented power and wealth, the nation must choose its path forward.",
+      "choices": [
+        {
+          "id": "choice-isolation",
+          "text": "Focus on Internal Development and Innovation",
+          "description": "Pull back from global affairs. Close overseas bases. Redirect military spending to research, infrastructure, and technological advancement. Immigration limited to top scientists and engineers.",
+          "nextNode": "path-isolation/200-fortress-america",
+          "consequences": ["isolationist_policy", "tech_investment", "merit_immigration", "fortress_doctrine"]
+        },
+        {
+          "id": "choice-selective",
+          "text": "Selective Engagement with Strict Limits",
+          "description": "Minimal foreign involvement through trade only. No military alliances. No foreign aid. Prioritize domestic innovation while maintaining commercial relationships.",
+          "nextNode": "path-innovation/300-silicon-dawn",
+          "consequences": ["limited_engagement", "trade_focus", "tech_priority", "commercial_relations"]
+        },
+        {
+          "id": "choice-unity",
+          "text": "Focus on Domestic Unity and Reconstruction",
+          "description": "Heal internal divisions. Rebuild American cities. Invest in infrastructure. Create a unified national purpose centered on American prosperity and self-sufficiency.",
+          "nextNode": "path-unity/400-rebuilding",
+          "consequences": ["domestic_focus", "unity_priority", "infrastructure_investment", "self_reliance"]
+        }
+      ],
+      "media": {
+        "image": "/assets/img/divergence/crossroads-1945.jpg",
+        "ambient": "/assets/audio/ambient/post-war.mp3"
+      },
+      "tags": ["decision", "critical", "divergence"]
+    },
+    "path-isolation/200-fortress-america": {
+      "id": "path-isolation/200-fortress-america",
+      "title": "Fortress America",
+      "era": "isolation",
+      "year": "1946-1950",
+      "type": "story",
+      "nextNode": "path-isolation/201-tech-renaissance",
+      "tags": ["isolation", "defense", "withdrawal"]
+    },
+    "path-isolation/201-tech-renaissance": {
+      "id": "path-isolation/201-tech-renaissance",
+      "title": "The Great Technological Renaissance",
+      "era": "isolation",
+      "year": "1950-1970",
+      "type": "story",
+      "nextNode": "path-isolation/202-space-age",
+      "tags": ["technology", "innovation", "renaissance"]
+    },
+    "path-isolation/202-space-age": {
+      "id": "path-isolation/202-space-age",
+      "title": "The American Space Age",
+      "era": "isolation",
+      "year": "1970-1990",
+      "type": "story",
+      "nextNode": "endings/splendid-isolation",
+      "tags": ["space", "technology", "achievement"]
+    },
+    "path-innovation/300-silicon-dawn": {
+      "id": "path-innovation/300-silicon-dawn",
+      "title": "Silicon Dawn",
+      "era": "innovation",
+      "year": "1946-1960",
+      "type": "story",
+      "nextNode": "path-innovation/301-fusion-breakthrough",
+      "tags": ["innovation", "technology", "computing"]
+    },
+    "path-innovation/301-fusion-breakthrough": {
+      "id": "path-innovation/301-fusion-breakthrough",
+      "title": "The Fusion Breakthrough",
+      "era": "innovation",
+      "year": "1960-1980",
+      "type": "story",
+      "nextNode": "path-innovation/302-mars-colony",
+      "tags": ["fusion", "energy", "breakthrough"]
+    },
+    "path-innovation/302-mars-colony": {
+      "id": "path-innovation/302-mars-colony",
+      "title": "Mars Colony Alpha",
+      "era": "innovation",
+      "year": "1980-2000",
+      "type": "story",
+      "nextNode": "endings/techno-utopia",
+      "tags": ["mars", "colony", "space", "achievement"]
+    },
+    "path-unity/400-rebuilding": {
+      "id": "path-unity/400-rebuilding",
+      "title": "The Great Rebuilding",
+      "era": "unity",
+      "year": "1946-1960",
+      "type": "story",
+      "nextNode": "path-unity/401-infrastructure",
+      "tags": ["unity", "rebuilding", "domestic"]
+    },
+    "path-unity/401-infrastructure": {
+      "id": "path-unity/401-infrastructure",
+      "title": "Infrastructure Revolution",
+      "era": "unity",
+      "year": "1960-1980",
+      "type": "story",
+      "nextNode": "path-unity/402-new-frontier",
+      "tags": ["infrastructure", "progress", "development"]
+    },
+    "path-unity/402-new-frontier": {
+      "id": "path-unity/402-new-frontier",
+      "title": "The New American Frontier",
+      "era": "unity",
+      "year": "1980-2000",
+      "type": "story",
+      "nextNode": "endings/quiet-greatness",
+      "tags": ["frontier", "achievement", "prosperity"]
+    },
+    "endings/techno-utopia": {
+      "id": "endings/techno-utopia",
+      "title": "Techno-Utopia: Humanity's Future",
+      "type": "ending",
+      "endingType": "triumph",
+      "era": "ending",
+      "year": "2000",
+      "requirements": ["tech_investment", "trade_focus"],
+      "tags": ["ending", "victory", "technology", "utopia"]
+    },
+    "endings/splendid-isolation": {
+      "id": "endings/splendid-isolation",
+      "title": "Splendid Isolation",
+      "type": "ending",
+      "endingType": "neutral",
+      "era": "ending",
+      "year": "2000",
+      "requirements": ["isolationist_policy", "fortress_doctrine"],
+      "tags": ["ending", "isolation", "self-reliant"]
+    },
+    "endings/quiet-greatness": {
+      "id": "endings/quiet-greatness",
+      "title": "Quiet Greatness",
+      "type": "ending",
+      "endingType": "good",
+      "era": "ending",
+      "year": "2000",
+      "requirements": ["domestic_focus", "unity_priority"],
+      "tags": ["ending", "prosperity", "unity"]
+    },
+    "endings/internal-collapse": {
+      "id": "endings/internal-collapse",
+      "title": "Internal Collapse",
+      "type": "ending",
+      "endingType": "bad",
+      "era": "ending",
+      "year": "2000",
+      "requirements": [],
+      "tags": ["ending", "failure", "collapse"]
+    }
+  },
+  "themes": {
+    "isolationism": "Non-interventionist foreign policy - America First in practice",
+    "innovation": "Continued technological advancement through focused R&D investment",
+    "meritocracy": "Immigration based strictly on technical merit - scientists and engineers only",
+    "unity": "Domestic cohesion prioritized over diversity",
+    "self-reliance": "American self-sufficiency in energy, manufacturing, and technology"
+  }
+}

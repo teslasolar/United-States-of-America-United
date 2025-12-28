@@ -1,0 +1,195 @@
+---
+layout: layouts/base.njk
+title: Home
+permalink: /
+---
+
+<div class="max-w-5xl mx-auto">
+
+  <!-- Hero Section -->
+  <header class="text-center py-12 mb-16">
+    <h1 class="text-5xl md:text-7xl font-display font-bold mb-4">
+      <span class="text-gradient">United States of America</span>
+      <span class="block text-americana-crimson mt-2">United</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-americana-textMuted max-w-3xl mx-auto mb-8">
+      An Alternate History of American Isolationism and Innovation
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/story/{{ storyGraph.startNode }}/" class="btn btn-primary text-lg">
+        Begin Your Journey
+      </a>
+      <button
+        @click="$store.story && $store.story.currentNode && (window.location.href = '/story/' + $store.story.currentNode + '/')"
+        x-show="$store.story && $store.story.currentNode && $store.story.visitedNodes.length > 1"
+        class="btn btn-outline text-lg"
+      >
+        Continue Story
+      </button>
+    </div>
+  </header>
+
+  <!-- Story Overview -->
+  <section class="card mb-12">
+    <h2 class="card-header">The Premise</h2>
+    <div class="prose-story">
+      <p>
+        <strong>1945.</strong> World War II ends. America stands alone as the world's superpower—the only nuclear nation, the strongest economy, unmatched industrial might.
+      </p>
+      <p>
+        In our timeline, America chose <strong>intervention</strong>. The Marshall Plan. NATO. Permanent overseas bases. Endless wars in Korea, Vietnam, Iraq, Afghanistan.
+      </p>
+      <p>
+        But what if America had chosen <strong>differently</strong>?
+      </p>
+      <p>
+        What if those resources—trillions of dollars, millions of man-hours—had turned <strong>inward</strong>? What if the Manhattan Project's brilliance kept flowing to civilian technology? What if immigration was strictly merit-based, limited to the world's best scientists and engineers?
+      </p>
+      <p class="text-americana-crimson font-bold text-lg">
+        This is that story. A branching narrative where you explore alternate Americas, each shaped by choices at critical moments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Stats -->
+  <section class="grid md:grid-cols-4 gap-4 mb-12">
+    <div class="card text-center">
+      <div class="text-3xl font-bold text-americana-gold mb-2">{{ storyGraph.stats.totalNodes }}</div>
+      <div class="text-sm text-americana-textMuted">Story Nodes</div>
+    </div>
+    <div class="card text-center">
+      <div class="text-3xl font-bold text-americana-crimson mb-2">{{ storyGraph.stats.decisions }}</div>
+      <div class="text-sm text-americana-textMuted">Decision Points</div>
+    </div>
+    <div class="card text-center">
+      <div class="text-3xl font-bold text-americana-navy mb-2">{{ storyGraph.stats.endings }}</div>
+      <div class="text-sm text-americana-textMuted">Possible Endings</div>
+    </div>
+    <div class="card text-center" x-data="{visited: $store.story ? $store.story.visitedNodes.length : 0}">
+      <div class="text-3xl font-bold text-americana-text mb-2" x-text="visited"></div>
+      <div class="text-sm text-americana-textMuted">Your Progress</div>
+    </div>
+  </section>
+
+  <!-- The Paths -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-display font-bold text-americana-text mb-8 text-center">
+      The Diverging Paths
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Path 1: Isolation -->
+      <div class="card hover:border-americana-crimson transition-all duration-300">
+        <div class="text-4xl mb-4">🏛️</div>
+        <h3 class="text-xl font-display font-bold text-americana-text mb-3">
+          Fortress America
+        </h3>
+        <p class="text-americana-textMuted mb-4">
+          Total isolation. All troops home. No foreign bases. Every dollar redirected to American innovation and infrastructure. Merit-only immigration.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="badge badge-era">Isolationism</span>
+          <span class="badge badge-year">Tech Focus</span>
+          <span class="badge badge-decision">Self-Reliance</span>
+        </div>
+      </div>
+
+      <!-- Path 2: Innovation -->
+      <div class="card hover:border-americana-gold transition-all duration-300">
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="text-xl font-display font-bold text-americana-text mb-3">
+          Silicon Dawn
+        </h3>
+        <p class="text-americana-textMuted mb-4">
+          Selective engagement through trade only. No military commitments. Maximum R&D investment. Import genius, export technology.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="badge badge-era">Innovation</span>
+          <span class="badge badge-year">Commerce</span>
+          <span class="badge badge-decision">Excellence</span>
+        </div>
+      </div>
+
+      <!-- Path 3: Unity -->
+      <div class="card hover:border-americana-navy transition-all duration-300">
+        <div class="text-4xl mb-4">🇺🇸</div>
+        <h3 class="text-xl font-display font-bold text-americana-text mb-3">
+          American Unity
+        </h3>
+        <p class="text-americana-textMuted mb-4">
+          Rebuild America from within. Heal divisions. Modern infrastructure. Universal prosperity. Minimal foreign involvement. Shared national purpose.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="badge badge-era">Domestic</span>
+          <span class="badge badge-year">Unity</span>
+          <span class="badge badge-decision">Infrastructure</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-display font-bold text-americana-text mb-8 text-center">
+      Features
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="flex gap-4">
+        <div class="text-3xl">🌳</div>
+        <div>
+          <h3 class="font-bold text-americana-text mb-2">Branching Narrative</h3>
+          <p class="text-americana-textMuted">
+            Your choices shape history. Multiple paths lead to different Americas. Explore them all.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div class="text-3xl">💾</div>
+        <div>
+          <h3 class="font-bold text-americana-text mb-2">Save & Bookmark</h3>
+          <p class="text-americana-textMuted">
+            Progress automatically saved. Create bookmarks at key moments. Export your timeline.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div class="text-3xl">📊</div>
+        <div>
+          <h3 class="font-bold text-americana-text mb-2">Progress Tracking</h3>
+          <p class="text-americana-textMuted">
+            See how much you've explored. Track decisions made. Discover all endings.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div class="text-3xl">🎯</div>
+        <div>
+          <h3 class="font-bold text-americana-text mb-2">Historical Grounding</h3>
+          <p class="text-americana-textMuted">
+            Alternate history rooted in plausibility. What if choices, grounded in reality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-12 card bg-gradient-to-br from-americana-navy/30 to-americana-crimson/20 border-2 border-americana-crimson">
+    <h2 class="text-3xl font-display font-bold text-americana-text mb-4">
+      Ready to Explore?
+    </h2>
+    <p class="text-americana-textMuted mb-8 max-w-2xl mx-auto">
+      The year is 1945. The war is won. The future is unwritten. What path will you choose for America?
+    </p>
+    <a href="/story/{{ storyGraph.startNode }}/" class="btn btn-primary text-lg">
+      Begin Your Journey →
+    </a>
+  </section>
+
+</div>

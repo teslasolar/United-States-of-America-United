@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="fade-in">
+
+  <!-- Header with metadata -->
+  <header class="mb-8">
+    <!-- Breadcrumb / Era -->
+    <div class="flex flex-wrap items-center gap-2 mb-4">
+      {% if era %}
+      <span class="badge badge-era">{{ era | title }}</span>
+      {% endif %}
+      {% if year %}
+      <span class="badge badge-year">{{ year }}</span>
+      {% endif %}
+      {% if type == 'decision' %}
+      <span class="badge badge-decision">Decision Point</span>
+      {% endif %}
+      {% if type == 'ending' %}
+      <span class="badge bg-americana-gold/20 text-americana-gold border border-americana-gold/50">
+        Ending
+      </span>
+      {% endif %}
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-4xl md:text-5xl font-display font-bold text-americana-text mb-4">
+      {{ title }}
+    </h1>
+
+    <!-- Node ID (for debugging/reference) -->
+    <div class="text-xs font-mono text-americana-textMuted/50">
+      {{ nodeId }}
+    </div>
+  </header>
+
+  <!-- Story Content -->
+  <div class="prose-story">
+    {{ content | safe }}
+  </div>
+
+  <!-- Decision Choices (if this is a decision node) -->
+  {% include "components/choices.njk" %}
+
+  <!-- Navigation / Progress (if this is a story node or ending) -->
+  {% include "components/progress.njk" %}
+
+  <!-- Metadata Footer -->
+  <footer class="mt-16 pt-8 border-t border-americana-border">
+    <div class="flex flex-wrap gap-4 text-sm text-americana-textMuted">
+      {% if tags and tags.length > 0 %}
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="font-semibold">Tags:</span>
+        {% for tag in tags %}
+        <span class="px-2 py-1 bg-americana-surface rounded text-xs">
+          {{ tag }}
+        </span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Bookmark this page -->
+    <div class="mt-6">
+      <button
+        @click="$store.story && $store.story.addBookmark('{{ nodeId }}', 'Bookmark: {{ title }}')"
+        class="text-sm text-americana-textMuted hover:text-americana-gold transition-colors inline-flex items-center gap-2"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+        </svg>
+        <span>Bookmark this moment</span>
+      </button>
+    </div>
+  </footer>
+
+</article>
+
+<!-- Mark this node as visited on page load -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const store = Alpine.store('story');
+    if (store && '{{ nodeId }}') {
+      store.visitNode('{{ nodeId }}');
+    }
+  });
+</script>

@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  /* Story container */
+  .story-container {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  /* Choice buttons */
+  .choice-btn {
+    @apply block w-full text-left p-6 mb-4 rounded-lg border-2 border-americana-steel
+           bg-americana-surface hover:bg-americana-navy/30 hover:border-americana-crimson
+           transition-all duration-300 cursor-pointer;
+  }
+
+  .choice-btn-title {
+    @apply text-xl font-bold text-americana-text
+           transition-colors duration-300 mb-2;
+  }
+
+  .choice-btn:hover .choice-btn-title {
+    @apply text-americana-crimson;
+  }
+
+  .choice-btn-desc {
+    @apply text-americana-textMuted
+           transition-colors duration-300;
+  }
+
+  .choice-btn:hover .choice-btn-desc {
+    @apply text-americana-text;
+  }
+
+  /* Navigation sidebar */
+  .nav-sidebar {
+    @apply fixed left-0 top-0 h-screen w-64 bg-americana-surface border-r border-americana-border
+           overflow-y-auto p-6 hidden lg:block;
+  }
+
+  .nav-link {
+    @apply block py-2 px-3 rounded text-americana-textMuted hover:text-americana-text
+           hover:bg-americana-navy/30 transition-colors duration-200;
+  }
+
+  .nav-link-active {
+    @apply bg-americana-crimson/20 text-americana-crimson font-semibold;
+  }
+
+  /* Progress indicator */
+  .progress-bar {
+    @apply w-full h-2 bg-americana-steel/30 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-americana-crimson to-americana-gold
+           transition-all duration-500;
+  }
+
+  /* Timeline component */
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-americana-steel/50;
+  }
+
+  .timeline-dot {
+    @apply absolute left-0 top-0 w-4 h-4 -ml-2 rounded-full bg-americana-crimson
+           ring-4 ring-americana-bg;
+  }
+
+  .timeline-year {
+    @apply text-americana-gold font-mono text-sm font-bold mb-1;
+  }
+
+  .timeline-title {
+    @apply text-americana-text font-semibold mb-1;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-americana-surface rounded-lg border border-americana-border p-6;
+  }
+
+  .card-header {
+    @apply text-2xl font-display font-bold text-americana-text mb-4;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-era {
+    @apply bg-americana-navy/50 text-americana-text border border-americana-navy;
+  }
+
+  .badge-year {
+    @apply bg-americana-gold/20 text-americana-gold border border-americana-gold/50;
+  }
+
+  .badge-decision {
+    @apply bg-americana-crimson/20 text-americana-crimson border border-americana-crimson/50;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-americana-crimson text-white hover:bg-americana-crimson/80
+           hover:shadow-lg hover:shadow-americana-crimson/50;
+  }
+
+  .btn-secondary {
+    @apply bg-americana-steel text-white hover:bg-americana-steel/80;
+  }
+
+  .btn-outline {
+    @apply border-2 border-americana-crimson text-americana-crimson
+           hover:bg-americana-crimson hover:text-white;
+  }
+
+  /* Bookmark styles */
+  .bookmark-item {
+    @apply p-4 bg-americana-surface border border-americana-border rounded-lg
+           hover:border-americana-gold transition-colors duration-200;
+  }
+
+  /* Content typography */
+  .prose-story {
+    @apply prose prose-invert prose-lg max-w-none
+           prose-headings:font-display prose-headings:text-americana-text
+           prose-p:text-americana-text prose-p:leading-relaxed
+           prose-a:text-americana-crimson prose-a:no-underline hover:prose-a:text-americana-gold
+           prose-strong:text-americana-text
+           prose-code:text-americana-gold prose-code:bg-americana-surface
+           prose-blockquote:border-l-americana-crimson prose-blockquote:text-americana-textMuted;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-americana-crimson via-americana-white to-americana-navy
+           bg-clip-text text-transparent;
+  }
+
+  .americana-glow {
+    text-shadow: 0 0 20px rgba(191, 10, 48, 0.5);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.americana.steel') theme('colors.americana.bg');
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: theme('colors.americana.bg');
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.americana.steel');
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.americana.crimson');
+  }
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-americana-bg text-americana-text font-serif antialiased scrollbar-thin;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Alpine.js transitions */
+[x-cloak] {
+  display: none !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

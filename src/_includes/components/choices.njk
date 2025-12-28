@@ -1,0 +1,35 @@
+{% if type == 'decision' and choices %}
+<div class="my-12">
+  <h2 class="text-2xl font-display font-bold text-americana-text mb-2">
+    Choose Your Path
+  </h2>
+  <p class="text-americana-textMuted mb-8">
+    {{ description or "Each choice shapes America's future. Choose wisely." }}
+  </p>
+
+  <div class="space-y-4">
+    {% for choice in choices %}
+    <button
+      class="choice-btn"
+      @click="$store.story.makeChoice('{{ nodeId }}', '{{ choice.id }}', '{{ choice.nextNode }}', {{ choice.consequences | jsonInline }})"
+    >
+      <div class="choice-btn-title">
+        {{ choice.text }}
+      </div>
+      <div class="choice-btn-desc">
+        {{ choice.description }}
+      </div>
+      {% if choice.consequences and choice.consequences.length > 0 %}
+      <div class="mt-3 flex flex-wrap gap-2">
+        {% for consequence in choice.consequences %}
+        <span class="badge badge-era text-xs">
+          {{ consequence | replace('_', ' ') | title }}
+        </span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </button>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

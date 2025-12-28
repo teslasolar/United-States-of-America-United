@@ -1,0 +1,17 @@
+{
+  "title": "United States of America United",
+  "subtitle": "An Alternate History of American Isolationism and Innovation",
+  "description": "Explore an alternate timeline where America chose isolationism and internal technical progress over global intervention. Experience a branching narrative through the paths not taken.",
+  "url": "https://teslasolar.github.io/United-States-of-America-United",
+  "author": "United States of America United Project",
+  "language": "en",
+  "theme": {
+    "primaryColor": "#BF0A30",
+    "secondaryColor": "#002868",
+    "accentColor": "#FFD700"
+  },
+  "social": {
+    "github": "https://github.com/teslasolar/United-States-of-America-United"
+  },
+  "buildTime": "2025-12-28"
+}

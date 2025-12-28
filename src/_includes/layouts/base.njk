@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ site.language }}" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="author" content="{{ site.author }}">
+
+  <title>{{ title }} | {{ site.title }}</title>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }} | {{ site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <!-- Favicon (using emoji for now) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇺🇸</text></svg>">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&family=Oswald:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Alpine.js -->
+  <script defer src="/assets/js/alpine.min.js"></script>
+</head>
+
+<body class="bg-americana-bg text-americana-text min-h-screen" x-data="{ mobileMenuOpen: false }">
+
+  <!-- Mobile Header -->
+  <header class="lg:hidden fixed top-0 left-0 right-0 bg-americana-surface border-b border-americana-border z-50">
+    <div class="flex items-center justify-between p-4">
+      <a href="/" class="text-xl font-display font-bold text-americana-crimson">
+        USAU
+      </a>
+      <button
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="text-americana-text hover:text-americana-crimson transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div
+    x-show="mobileMenuOpen"
+    x-cloak
+    @click.away="mobileMenuOpen = false"
+    class="lg:hidden fixed inset-0 bg-americana-bg z-40 overflow-y-auto pt-16"
+  >
+    <div class="p-6">
+      {% include "components/navigation.njk" %}
+    </div>
+  </div>
+
+  <!-- Desktop Sidebar -->
+  <aside class="nav-sidebar">
+    {% include "components/navigation.njk" %}
+  </aside>
+
+  <!-- Main Content -->
+  <main class="lg:ml-64 min-h-screen">
+    <div class="story-container">
+      {{ content | safe }}
+    </div>
+  </main>
+
+  <!-- Story State Management -->
+  <script src="/assets/js/story-state.js"></script>
+
+  <!-- Initialize state -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const store = Alpine.store('story');
+      if (store) {
+        store.init('{{ storyGraph.startNode }}');
+      }
+    });
+  </script>
+
+</body>
+</html>
